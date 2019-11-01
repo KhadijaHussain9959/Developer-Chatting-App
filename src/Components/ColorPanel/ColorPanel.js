@@ -6,13 +6,14 @@ class ColorPanel extends React.Component {
     return (
       <Sidebar
         as={Menu}
-        Icon="labeled"
+        icon="labeled"
         inverted
         vertical
         visible
         width="very thin"
       >
         <Divider />
+        <Button icon="add" size="small" color="blue" />
       </Sidebar>
     );
   }
