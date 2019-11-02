@@ -13,12 +13,13 @@ class MessagesHeader extends React.Component {
           </span>
           <Header.Subheader>2User</Header.Subheader>
         </Header>
+
         {/* { search channel title} */}
-        <Header>
+        <Header floated="right">
           <Input
-            ize="mini"
-            icon="seatch"
-            name="SearchTera"
+            size="mini"
+            icon="search"
+            name="SearchTerm"
             placeholder="Search Messages"
           />
         </Header>
