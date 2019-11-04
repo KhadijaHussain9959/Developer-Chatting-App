@@ -15,7 +15,7 @@ body,
 /* Messages form */
 .message__form {
   position: fixed !important;
-  bottom: 1em;
+  bottom: 3em;
   margin-left: 320px !important;
   left: 0;
   right: 1em;
@@ -28,6 +28,11 @@ body,
   padding-left: 8px;
 }
 
-.message__image{
+.message__image {
   padding: 1em;
+}
+
+/* progress BAr */
+.progress__bar {
+  margin: 0.3em 0 0 0 !important;
 }
