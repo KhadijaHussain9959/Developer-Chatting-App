@@ -11,7 +11,6 @@ import {
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import firebase from "../../firebase";
-import { createTypeAnnotationBasedOnTypeof } from "@babel/types";
 
 class Register extends React.Component {
   state = {

@@ -1,6 +1,6 @@
 import React from "react";
 import firebase from "../../firebase";
-import { setCurrentChannel } from "../../actions";
+import { setCurrentChannel, setPrivateChannel } from "../../actions";
 import { Menu, Icon, Modal, Input, Form, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 
@@ -113,6 +113,7 @@ class Channels extends React.Component {
   changeChannel = channel => {
     this.props.setCurrentChannel(channel);
     this.setActiveChannel(channel);
+    this.props.setPrivateChannel(false);
   };
   closeModal = () => {
     this.setState({ modal: false });
@@ -176,5 +177,5 @@ class Channels extends React.Component {
 
 export default connect(
   null,
-  { setCurrentChannel }
+  { setCurrentChannel, setPrivateChannel }
 )(Channels);

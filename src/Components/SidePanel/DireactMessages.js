@@ -59,7 +59,7 @@ class DirectMessages extends React.Component {
 
   addStatusToUser = (userId, connected = true) => {
     const updatedUsers = this.state.users.reduce((acc, user) => {
-      if (user.uid == userId) {
+      if (user.uid === userId) {
         user["status"] = `${connected ? "online" : "offline"}`;
       }
       return acc.concat(user);
@@ -76,6 +76,7 @@ class DirectMessages extends React.Component {
     };
     this.props.setCurrentChannel(channelData);
     this.props.setPrivateChannel(true);
+    this.setActiveChannel(user.uid);
   };
 
   getChannelId = userId => {
@@ -85,8 +86,12 @@ class DirectMessages extends React.Component {
       : `${currentUserId}/${userId}`;
   };
 
+  setActiveChannel = userId => {
+    this.setState({ activeChannel: userId });
+  };
+
   render() {
-    const { users } = this.state;
+    const { users, activeChannel } = this.state;
     return (
       <Menu.Menu className="menu">
         <Menu.Item>
@@ -99,6 +104,7 @@ class DirectMessages extends React.Component {
         {users.map(user => (
           <Menu.Item
             key={user.uid}
+            active={user.uid === activeChannel}
             onClick={() => this.changeChannel(user)}
             // onClick={() => console.log(user)}
             style={{ opacity: 0.7, fontStyle: "italic" }}
@@ -115,7 +121,6 @@ class DirectMessages extends React.Component {
   }
 }
 
-export default connect(
-  null,
-  { setCurrentChannel, setPrivateChannel }
-)(DirectMessages);
+export default connect(null, { setCurrentChannel, setPrivateChannel })(
+  DirectMessages
+);
